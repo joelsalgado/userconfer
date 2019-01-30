@@ -1,0 +1,75 @@
+<ion-header>
+
+<ion-navbar color="color1">
+  <ion-title>Conferencias</ion-title>
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p align="center"><ion-img src="../assets/imgs/logoC.jpg" width="50" height="50"></ion-img></p>
+  <p align="center" style="color: #07904d">1ER CONGRESO INTERINSTITUCIONAL</p>
+  <p style="font-size: x-small;color: coral" align="center">FINES DE LA EDUCACIÓN EN EL SIGLO XXI Y MODELO EDUCATIVO PARA LA EDUCACIÓN OBLIGARIA EN MÉXICO</p>
+  <br>
+  <p align="center" style="color: #f53d3d; font-size: medium">HOLA {{this.name}}</p>
+  <ion-item-divider color="color2">Día 24/01/2019</ion-item-divider>
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let todos of todo">
+      <ion-item text-wrap *ngIf="todos.fecha == '2019-01-24 00:00:00.000'">
+
+        <button ion-item color="color3"  class="app-font-25" (click)='this.changeView(todos)' >
+          <div>
+            <p>{{todos.descripcion}}</p>
+            <p>{{todos.inicio}} - {{todos.fin}}</p>
+            <div *ngIf="todos.status == 1">
+              <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
+            </div>
+            <div *ngIf="todos.status == 0">
+              <ion-icon name="close-circle" color="danger"></ion-icon>
+            </div>
+          </div>
+        </button>
+
+      </ion-item>
+
+
+
+
+    </ion-item-sliding>
+
+  </ion-list>
+  <ion-item-divider color="color2">Día 25/01/2019</ion-item-divider>
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let todos of todo">
+      <ion-item text-wrap *ngIf="todos.fecha == '2019-01-25 00:00:00.000'">
+
+        <button ion-item color="color3"  class="app-font-25" (click)='this.changeView(todos)' >
+          <div>
+            <p>{{todos.descripcion}}</p>
+            <p>{{todos.inicio}} - {{todos.fin}}</p>
+            <div *ngIf="todos.status == 1">
+              <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
+            </div>
+            <div *ngIf="todos.status == 0">
+              <ion-icon name="close-circle" color="danger"></ion-icon>
+            </div>
+          </div>
+        </button>
+
+      </ion-item>
+
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <div>
+    <ion-icon name="checkmark-circle" color="secondary"></ion-icon> Conferencias Asistidas <br>
+    <ion-icon name="close-circle" color="danger"></ion-icon> Conferencias por Asistir
+  </div>
+
+</ion-content>
+

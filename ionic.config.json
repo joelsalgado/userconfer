@@ -1,5 +1,7 @@
 {
   "name": "userconfer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
