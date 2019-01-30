@@ -17,7 +17,12 @@ export class ConferenciaPage {
 
   conferencia : Object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+
+
+
     this.conferencia = navParams.get('data');
   }
 

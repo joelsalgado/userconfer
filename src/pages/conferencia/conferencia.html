@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="color1">
-    <ion-title>conferencia</ion-title>
+    <ion-title>Conferencia</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,12 +19,14 @@
   <p style="font-size: x-small;color: coral" align="center">FINES DE LA EDUCACIÓN EN EL SIGLO XXI Y MODELO EDUCATIVO PARA LA EDUCACIÓN OBLIGARIA EN MÉXICO</p>
   <br>
   <ion-card>
-    <ion-card-header>
+    <ion-card-header style="white-space: normal;" text-center="true">
       <p>{{conferencia.descripcion}}</p>
     </ion-card-header>
 
     <ion-card-content>
-      Lalala
+      <p style="font-size: medium;color: coral" align="center">HORARIO: {{conferencia.inicio}} - {{conferencia.fin}}</p><br>
+      <p style="font-size: medium;color: coral" align="center">LUGAR: {{conferencia.salon}}</p><br>
+      <p style="font-size: medium;color: coral" align="center">PONENTE: {{conferencia.conductor}}</p>
     </ion-card-content>
 
   </ion-card>
