@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import {TodosProvider} from "../providers/todos/todos";
 import {ListPageModule} from "../pages/list/list.module";
 import {ConferenciaPageModule} from "../pages/conferencia/conferencia.module";
+import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {ConferenciaPageModule} from "../pages/conferencia/conferencia.module";
   providers: [
     StatusBar,
     SplashScreen,
+    PhonegapLocalNotification,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TodosProvider
   ]
