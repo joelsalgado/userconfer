@@ -26,12 +26,12 @@ export class HomePage {
               private toast: ToastController,
               public backgroundMode: BackgroundMode,
               public platform: Platform) {
-
-
+    if (localStorage.getItem("user_id") === null) {
+        console.log('No');
+    }else{
+      this.navCtrl.setRoot(ListPage);
+    }
     platform.ready().then(() => {
-
-
-
 
       this.notificationAlreadyReceived = true;
 
@@ -43,6 +43,9 @@ export class HomePage {
       password: ['', [Validators.required]],
     });
 
+
+
+
   }
 
   changeView(){
@@ -51,12 +54,13 @@ export class HomePage {
 
     this.todoService.loginUser(this.username,this.password).then((data) => {
       if(data != 0){
-        this.navCtrl.setRoot(ListPage, {user:data[0]});
+        localStorage.setItem('user_id', data[0].clave);
+        this.navCtrl.setRoot(ListPage);
         console.log(data);
       }else{
         this.toastOpcion = {
           message: 'Usuario o contraseña incorrecta',
-          duration: 3000
+          duration: 3009
         };
 
         this.toast.create(this.toastOpcion).present();
