@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import {TodosProvider} from "../../providers/todos/todos";
 import {ConferenciaPage} from "../conferencia/conferencia";
 import {HomePage} from "../home/home";
+import moment from 'moment';
 
 /**
  * Generated class for the ListPage page.
@@ -56,6 +57,28 @@ export class ListPage {
   salir(){
     localStorage.removeItem('user_id');
     this.navCtrl.setRoot(HomePage);
+  }
+
+  despues(value, fecha){
+    let myDate = new Date().toLocaleString('en-ZA', { timeZone: 'America/Mexico_City'}).substring(0, 10);
+
+    var date1 = new Date(myDate);
+    var date2 = new Date(fecha);
+
+    if(date2 > date1){
+      let x = this.hora()+'';
+      let diff = moment(x, 'HH:mm').diff(moment(value, 'HH:mm'));
+      let d = moment.duration(diff);
+      return(Number(Math.floor(d.asHours()) + moment.utc(diff).format("mm")));
+    }
+    else{
+      return 16;
+    }
+
+  }
+
+  hora(){
+    return new Date().toLocaleString('en-ZA', { timeZone: 'America/Mexico_City'}).substring(12, 17);
   }
 
 }

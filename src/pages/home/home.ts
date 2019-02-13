@@ -4,7 +4,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TodosProvider} from "../../providers/todos/todos";
 import {ListPage} from "../list/list";
 import {BackgroundMode} from "@ionic-native/background-mode";
-import {LocalNotifications} from "@ionic-native/local-notifications";
 
 @Component({
   selector: 'page-home',
@@ -16,13 +15,11 @@ export class HomePage {
   password: '';
   users: any;
   toastOpcion: ToastOptions;
-  notificationAlreadyReceived = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public fb: FormBuilder,
               public todoService: TodosProvider,
-              public localNotifications: LocalNotifications,
               private toast: ToastController,
               public backgroundMode: BackgroundMode,
               public platform: Platform) {
@@ -31,12 +28,6 @@ export class HomePage {
     }else{
       this.navCtrl.setRoot(ListPage);
     }
-    platform.ready().then(() => {
-
-      this.notificationAlreadyReceived = true;
-
-      this.backgroundMode.enable();
-    });
 
     this.myForm = this.fb.group({
       username: ['', [Validators.required]],
