@@ -29,7 +29,12 @@
               <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
             </div>
             <div *ngIf="todos.status == 0">
+              <div *ngIf="this.despues(todos.inicio, todos.fecha) > 15; else notShow">
               <ion-icon name="close-circle" color="danger"></ion-icon>
+              </div>
+              <ng-template #notShow>
+                <ion-icon name="time"></ion-icon>
+              </ng-template>
             </div>
           </div>
         </button>
