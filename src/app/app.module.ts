@@ -20,7 +20,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText: 'Atras'
+    }),
     ListPageModule,
     ConferenciaPageModule
   ],
