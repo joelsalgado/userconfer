@@ -45,12 +45,8 @@ export class ListPage {
   }
 
   changeView(todos){
-    this.actualizar(this.user);
-
-    this.todoService.findConferencias(todos.activity_id).then((data) => {
-      console.log(data[0]);
-      this.navCtrl.push(ConferenciaPage, {data:data[0]});
-    });
+    //this.actualizar(this.user);
+    this.navCtrl.push(ConferenciaPage, {activity :todos.activity_id});
 
   }
 
@@ -79,6 +75,18 @@ export class ListPage {
 
   hora(){
     return new Date().toLocaleString('en-ZA', { timeZone: 'America/Mexico_City'}).substring(12, 17);
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      this.user = localStorage.getItem("user_id");
+      this.actualizar(this.user);
+      console.log('Async operation has ended');
+      event.complete();
+      return true;
+    }, 1000);
   }
 
 }
